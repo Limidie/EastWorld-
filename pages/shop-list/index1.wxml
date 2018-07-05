@@ -1,0 +1,21 @@
+<import src="../../templates/template-goods-item/template-goods-item.wxml"></import>
+<view class="search-view">
+    <view class="serarch-content">
+        <image class="search-icon" src="../../images/search.png"></image>
+        <input bindconfirm="toSearch" class="search-input" confirmType="搜索" maxlength="20" placeholder="请输入搜索内容" value="{{keyword}}"></input>
+    </view>
+</view>
+<view class="content">
+    <view class="success-view" wx:if="{{load_statue}}">
+        <view class="goods-container">
+            <view bindtap="toDetailsTap" class="goods-box" data-id="{{item.id}}" wx:for="{{goods}}">
+                <template is="goods-item" data="{{item:item}}"></template>
+            </view>
+        </view>
+        <view class="list-bottom">
+            <view class="no-more-goods" wx:if="{{loadingHidden}}">没有更多啦</view>
+            <button bindtap="loadMoreGoodsList" class="load-more-goods" type="default" wx:else>加载更多</button>
+        </view>
+    </view>
+    <template is="load-fail-view" data wx:else></template>
+</view>

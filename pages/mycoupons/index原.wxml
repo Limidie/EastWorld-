@@ -1,0 +1,37 @@
+<view class="container">
+    <view class="coupons-list">
+        <view bindtap="gitCoupon" class="coupons-item" data-id="{{item.id}}" wx:for="{{coupons}}" wx:for-index="idx">
+            <view style="font-size: 50rpx"> ￥ {{item.money}}元 </view>
+            <view> {{item.name}} </view>
+            <view> 满 {{item.moneyHreshold}} 元使用 </view>
+            <view> {{item.dateEnd}} 前有效 </view>
+        </view>
+    </view>
+    <view style="height:100rpx;background-color:#fff;width:100%;"></view>
+    <view class="bottom-box">
+        <view bindtap="goBuy" class="add-btn">立即前往下单</view>
+    </view>
+</view>
+
+
+
+else if (res.authSetting['scope.userInfo'] === false || res.authSetting['scope.userLocation'] === false) {
+    console.log(res)
+    wx.showModal({
+      title: '用户未授权',
+      content: '如需正常使用小程序，请点击按钮设置，勾选用户信息并重新进入小程序。',
+      showCancel: false,
+      success: function (res) {
+        if (res.confirm) {
+          if (wx.openSetting) {
+            wx.openSetting();
+          } else {
+            wx.showModal({
+              title: '提示',
+              content: '当前微信版本过低，无法调用设置功能。'
+            })
+          }
+        }
+      }
+    });
+  }

@@ -1,0 +1,75 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/goods-details/index",
+        "pages/shop-cart/index",
+        "pages/shop-carts/index",
+        "pages/to-pay-order/index",
+        "pages/select-address/index",
+        "pages/address-add/index",
+        "pages/order-list/index",
+        "pages/order-details/index",
+        "pages/wuliu/index",
+        "pages/mycoupons/index",
+        "pages/my/index",
+        "pages/classify/index",
+        "pages/classify-goods-list/index",
+        "pages/about/index",
+        "pages/aboutb/index",
+        "pages/search/index",
+        "pages/shop/index",
+        "pages/vip/index",
+        "pages/shop-list/index",
+        "pages/share/share",
+        "pages/notice/show",
+        "pages/recharge/index",
+        "pages/withdraw/index",
+        "pages/tips-info/index",
+        "pages/authorize/index"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#FFFFFF",
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#999999",
+        "selectedColor": "#009944",
+        "borderStyle": "white",
+        "backgroundColor": "#f7f7fa",
+        "box-shadow": "0 0 6px 0",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "商城",
+                "iconPath": "images/nav/home-off.png",
+                "selectedIconPath": "images/nav/home-on.png"
+            },
+            {
+                "pagePath": "pages/classify/index",
+                "text": "分类",
+                "iconPath": "images/nav/classify-off.png",
+                "selectedIconPath": "images/nav/classify-on.png"
+            },
+            {
+                "pagePath": "pages/shop-list/index",
+                "text": "门店",
+                "iconPath": "images/nav/shop-off.png",
+                "selectedIconPath": "images/nav/shop-on.png"
+            },
+            {
+                "pagePath": "pages/shop-cart/index",
+                "text": "购物车",
+                "iconPath": "images/nav/cart-off.png",
+                "selectedIconPath": "images/nav/cart-on.png"
+            },
+            {
+                "pagePath": "pages/my/index",
+                "text": "我的",
+                "iconPath": "images/nav/my-off.png",
+                "selectedIconPath": "images/nav/my-on.png"
+            }
+        ]
+    }
+}

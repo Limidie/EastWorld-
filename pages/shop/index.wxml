@@ -1,0 +1,52 @@
+<scroll-view bindscrolltolower="scrolltolower" class="containerindex" scrollTop="{{scrollTop}}" scrollY="true" style="position: absolute; left: 0; top:0; bottom: 0; right: 0;">
+    <view bindtap="aboutxcx" class="page-view">
+        <image class="banner-image" src="../../images/shop.jpg"></image>
+    </view>
+    <view class="notice">
+        <view class="notice_iteml">公告</view>
+        <swiper autoplay="true" circular="true" class="notice_swiper" interval="3000" vertical="true" wx:if="{{noticeMap}}">
+            <navigator openType="navigate" url="/pages/notice/show?id={{item.id}}" wx:for="{{noticeMap}}" wx:key="{{index}}">
+                <swiper-item>
+                    <view class="notice_itemr">{{item.title}}</view>
+                </swiper-item>
+            </navigator>
+        </swiper>
+    </view>
+    <view class="single_goods" wx:for="{{idies}}" wx:key="id">
+        <view class="single_image_wrap">
+            <image class="single_goods_image" src="{{item.pic}}"></image>
+        </view>
+        <view class="single_goods_infor">
+            <navigator url="/pages/about/index?id={{item.id}}">
+                <view class="single_goods_name">
+                    <text>{{item.name}}</text>
+                    <view class="carImgWraps" wx:if="{{item.activity}}">
+                        <image class="carImgs" src="../../images/room/navli3.png"></image>
+                    </view>
+                </view>
+                <view class="single_goods_address">
+                    <text>{{item.address}}</text>
+                </view>
+                <view class="single_goods_price">
+                    <text>{{item.linkPhone}}</text>
+                    <view class="carImgWrap">
+                        <image class="carImg" src="../../images/room/icon-dw.png"></image>
+                    </view>
+                </view>
+            </navigator>
+        </view>
+    </view>
+    <view bindtap="aboutxcx" class="my-item">
+        <image class="item-left-icon" src="../../images/1443586300343329180.png"></image>
+        <text class="item-content">免费加入</text>
+        <image class="item-right-icon" src="../../images/arrow-right.png"></image>
+    </view>
+</scroll-view>
+<view class="aside-flote">
+    <button hoverClass="none" openType="share" type="primary">
+        <text bindtap="bind_go_cart" class="iconfont icon-share"></text>
+    </button>
+    <button bindtap="goTop" hoverClass="none">
+        <text class="iconfont icon-fold" wx:if="{{floorstatus}}"></text>
+    </button>
+</view>

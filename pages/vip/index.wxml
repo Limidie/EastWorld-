@@ -1,0 +1,52 @@
+<view class="m-coupon-list">
+    <view class="m-coupon-item" wx:for="{{coupons}}">
+        <view wx:if="{{item.status==0}}">
+            <view class="m-coupon-info">
+                <view class="m-coupon-text">
+                    <label>{{item.name}}</label>
+                    <text>满 {{item.moneyHreshold}} 元使用</text>
+                    <text wx:if="{{item.dateEndType==0}}">有效日期至：{{item.dateEnd}}</text>
+                    <text wx:if="{{item.dateEndType==1}}">领取 {{item.dateEndDays}} 天内有效</text>
+                </view>
+                <view class="m-coupon-price">
+                    <view class="price-content-box" wx:if="{{item.moneyMin==item.moneyMax}}">
+                        <label>￥</label>{{item.moneyMax}}
+              </view>
+                    <view class="price-content-box" wx:else>
+                        <label>￥</label>{{item.moneyMin}}-{{item.moneyMax}}
+              </view>
+                </view>
+            </view>
+            <view class="m-coupon-btn">
+                <label bindtap="gitCoupon" class="btn-coupon" data-id="{{item.id}}">{{item.status==0?'立即领取':'已经领取'}}</label>
+            </view>
+        </view>
+        <view wx:else>
+            <view class="m-coupon-info">
+                <view class="m-coupon-text">
+                    <label style="color:#888">{{item.name}}</label>
+                    <text>满 {{item.moneyHreshold}} 元使用</text>
+                    <text wx:if="{{item.dateEndType==0}}">日期至：{{item.dateEnd}}</text>
+                    <text wx:if="{{item.dateEndType==1}}">领取 {{item.dateEndDays}} 天内有效</text>
+                </view>
+                <view class="m-coupon-price">
+                    <view class="price-content-box {{item.status==2?'btn-coupon-gray':''}}">
+                        <label>￥</label>{{item.moneyMax}}</view>
+                </view>
+            </view>
+            <view class="m-coupon-btn">
+                <label class="btn-coupon btn-coupon-gray" wx:if="{{item.status==1}}">已经失效</label>
+                <label class="btn-coupon btn-coupon-gray" wx:if="{{item.status==2}}">已经过期</label>
+            </view>
+        </view>
+    </view>
+    <view class="u-loadmore u-loadmore-line">
+        <text class="u-loadmore-tips">以上优惠券限本商城内使用</text>
+    </view>
+    <view class="u-loadmore u-loadmore-line">
+        <text class="u-loadmore-tips">点击下图领各实体店优惠券</text>
+        <navigator openType="switchTab" url="/pages/shop/index">
+            <image class="item-bgs" src="../../images/room/bootvip.png"></image>
+        </navigator>
+    </view>
+</view>

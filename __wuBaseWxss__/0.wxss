@@ -1,0 +1,19 @@
+.backtop .icon-homefill,.aside-icon,.peisong-top,.wx-swiper-dot.wx-swiper-dot-active,button[type="primary"] {
+    background: #009aff;
+}
+
+button[type="primary"]:active {
+    background: #0086ff;
+}
+
+.green,.cate-name-active,.nav-tab .sub.active,.price-rank.active,.filter-item.active,.type {
+    color: #009aff;
+}
+
+.cate-name-active::after {
+    border-left-color: #009aff;
+}
+
+.nav-tab .sub.active,.price-rank.active:before,.price-rank.active.pr-arrow:after,.filter-item.active::after {
+    border-bottom-color: #009aff;
+}

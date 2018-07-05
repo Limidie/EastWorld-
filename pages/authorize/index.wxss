@@ -1,0 +1,31 @@
+/* pages/pay-success/pay-success.wxss */
+
+.blue {
+    color: #0abb07;
+}
+
+page {
+    background: #fff;
+}
+
+.success {
+    padding: 140rpx 60rpx 70rpx;
+}
+
+.wancheng {
+    width: 70%;
+    border: 1rpx solid #0abb07;
+    line-height: 78rpx;
+    background-color: #0abb07;
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.wancheng::after {
+    display: none;
+}
+
+.wancheng.button-hover {
+    background-color: #0abb07;
+}

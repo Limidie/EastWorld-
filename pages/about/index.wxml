@@ -1,0 +1,65 @@
+<scroll-view scrollY="true">
+    <view class="page-view">
+        <view class="top">
+            <view class="pic">
+                <image class="img" src="{{subshop.pic}}" wx:if="{{subshop.pic}}"></image>
+            </view>
+            <view class="info">
+                <text class="info-name">{{subshop.name}}</text>
+            </view>
+        </view>
+        <view bindtap="vip" class="voucher" wx:if="{{subshop.activity}}">
+            <view class="voucher-a">
+                <view class="voucher-info">
+                    <text class="voucher-i">券</text>
+                    <view class="voucher-sapn">
+                        <text class="voucher-b">{{subshop.type}}</text>
+                        <text>元代金券</text>
+                    </view>
+                </view>
+                <text class="voucher-value">收入微信卡包，实体店使用</text>
+                <button bindtap="vip" size="mini" type="warn">领取</button>
+            </view>
+        </view>
+        <view class="store-info">
+            <view class="info-ul">
+                <view bindtap="showLocation" class="info-li">
+                    <image class="location" src="../../images/room/location.png"></image>
+                    <text class="info-span">{{subshop.address}}</text>
+                    <image class="gps" src="../../images/room/gpsa.png"></image>
+                </view>
+                <view bindtap="weixin" class="info-li">
+                    <image class="time" src="../../images/room/phone.png"></image>
+                    <text class="info-span">电话：{{subshop.linkPhone}}</text>
+                    <image class="phone" src="../../images/room/wechat.png"></image>
+                </view>
+                <view class="info-li" wx:if="{{subshop.characteristic}}">
+                    <image class="time" src="../../images/room/time.png"></image>
+                    <text class="info-span-tese">特色：{{subshop.characteristic}}</text>
+                </view>
+                <view class="info-lis" wx:if="{{subshop.introduce}}">
+                    <image class="free" src="../../images/room/free.png"></image>
+                    <text class="info-spans">{{subshop.introduce}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="as-more">
+            <text class="more"></text>
+        </view>
+    </view>
+</scroll-view>
+<view class="footer">
+    <view class="buy-btn">
+        <button bindtap="callPhone" type="warn">拨打电话</button>
+    </view>
+</view>
+<view class="aside-flote">
+    <button hoverClass="none" openType="share" type="primary">
+        <text bindtap="bind_go_cart" class="iconfont icon-share"></text>
+    </button>
+    <navigator hoverClass="none" openType="switchTab" url="/pages/index/index">
+        <button hoverClass="none" type="primary">
+            <text class="iconfont icon-homefill"></text>
+        </button>
+    </navigator>
+</view>

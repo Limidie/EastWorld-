@@ -1,0 +1,41 @@
+<view class="filter-box tc">
+    <view class="filter gridXb flex">
+        <view bindtap="select_goods_list" class="sub filter-item {{select_type==''?'active':''}}" data-stype="">综合</view>
+        <view bindtap="select_goods_list" class="sub filter-item {{select_type=='xiaoliang'?'active':''}}" data-stype="xiaoliang">销量</view>
+        <view bindtap="select_goods_list" class="sub price-rank {{is_select_jiage?'pr-arrow':''}} {{select_type=='jiage'?'active':''}}" data-stype="jiage">价格</view>
+        <view bindtap="toggle_list_type_bind" class="type f20 filter-item">
+            <text class="iconfont {{list_type==true?'icon-list':'icon-apps'}}"></text>
+        </view>
+    </view>
+</view>
+<view class="malllist" wx:if="{{load_statue}}">
+    <view bindtap="toDetailsTap" class="m-item flex" data-id="{{item.id}}" wx:for="{{goods}}">
+        <view class="m-imgbox">
+            <image class="m-img" mode="aspectFill" src="{{item.pic}}"></image>
+        </view>
+        <view class="sub flex flexC ml20 m-box">
+            <view class="m-tit lineText2">
+                <text>{{item.name}}</text>
+            </view>
+            <view class="m-info grey f12 mt5 sub">
+                <text>月销{{item.numberOrders}}笔</text>
+            </view>
+            <view class="flex mt10">
+                <view class="good-price sub">
+                    <text class="iconfont icon-cu"></text>
+                    <text class="f20">￥{{item.minPrice}}</text>
+                    <text class="delLine f12 grey ml5">￥{{item.originalPrice}}</text>
+                </view>
+                <view>
+                    <text class="f18 red iconfont icon-cart"></text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view bindtap="goTop" class="backtop" wx:if="{{floorstatus}}">
+    <text class="iconfont icon-fold"></text>
+</view>
+<view class="tips-foot grey tc f12">
+  不要扯了，已经扯到底了
+</view>

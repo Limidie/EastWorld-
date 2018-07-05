@@ -1,0 +1,315 @@
+.container {
+    min-height: 100%;
+    overflow: hidden;
+    overflow-y: hidden;
+}
+
+.ss image {
+  position: absolute;
+   width:100%;
+  height:370rpx;
+  z-index: -1;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.userinfo-avatar {
+  width: 200rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  border: 10rpx solid white;
+}
+.userinfo-nickname {
+  color: black;
+  font-family: "PingFang SC";
+}
+
+.version {
+    width: 100%;
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 24rpx;
+    text-align: center;
+    padding: 40rpx;
+}
+
+.my-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 90rpx;
+    background: white;
+    margin-bottom: 2rpx;
+}
+
+.my-items button {
+    padding: 0;
+    border-radius: 50%;
+    line-height: 70rpx;
+}
+
+.item-left-icon {
+    float: left;
+    margin-left: 30rpx;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.item-content {
+    float: left;
+    width: 90%;
+    margin-top: auto;
+    font-size: 35rpx;
+    margin-bottom: auto;
+    margin-left: 15rpx;
+    height: auto;
+}
+
+.item-content-yuer {
+    float: left;
+    width: 40%;
+    margin-top: auto;
+    font-size: 35rpx;
+    margin-bottom: auto;
+    margin-left: 15rpx;
+    height: auto;
+}
+
+.item-content-qian {
+    float: left;
+    width: 40%;
+    margin-top: auto;
+    font-size: 35rpx;
+    margin-bottom: auto;
+    margin-left: 15rpx;
+    height: auto;
+}
+
+.item-right-icon {
+    float: right;
+    margin-right: 15rpx;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 20rpx;
+    height: 30rpx;
+}
+
+.inputView {
+    border: 2px solid red;
+    border-radius: 40px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+}
+
+.aside-flote {
+    position: fixed;
+    right: 30rpx;
+    bottom: 30rpx;
+    z-index: 9;
+    width: 70rpx;
+}
+
+.aside-flote button {
+    padding: 0;
+    border-radius: 50%;
+    line-height: 70rpx;
+}
+
+.aside-flote button:nth-child(n+1) {
+    margin-top: 15rpx;
+}
+
+.my-menu-box {
+    background: #fff;
+    margin: 24rpx 0;
+}
+
+.my-menu-item {
+    padding: 26rpx 30rpx;
+    color: #505050;
+    font-size: 35rpx;
+}
+
+.my-menu-item button {
+    padding: 0;
+    border-radius: 60%;
+    line-height: 70rpx;
+}
+
+.text-decoration {
+    color: black;
+    background-color: lightgreen;
+    font-size: 35rpx;
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.my-menu-item .iconfont {
+    font-weight: normal;
+    display: inline-block;
+    transform: scale(1.4);
+}
+
+.arrowL {
+    display: block;
+    padding-left: 30px;
+}
+
+.arrowRv::before {
+    transform: translateY(-50%) scale(0.7) rotate(135deg);
+}
+
+.forum-box {
+    overflow: hidden;
+}
+
+.my-menu-subitem {
+    padding: 12px 20px 12px 10px;
+    color: #666;
+}
+
+.my-menu-subitem:nth-child(n+2)::before {
+    left: 40rpx;
+}
+
+.my-menu-subitem:active {
+    background: rgba(0,0,0,0.05);
+}
+
+.copyright {
+    text-align: center;
+    line-height: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.copyright-text {
+    width: 100%;
+    font-size: 12px;
+}
+
+.menu-line {
+    text-align: center;
+}
+
+.menu-line .my-menu-subitem {
+    width: 25%;
+    padding: 30rpx 0;
+    font-size: 12px;
+    float: left;
+}
+
+.menu-line .my-menu-subitem:active {
+    background: rgba(0,0,0,0.05);
+}
+
+.menu-line .iconfont {
+    font-size: 50rpx;
+    line-height: 100%;
+}
+
+.links .my-menu-item:active {
+    background: rgba(0,0,0,0.05);
+}
+
+.loading-icon {
+    width: 72px;
+    height: 72px;
+}
+
+.loading-icon+text {
+    display: block;
+}
+
+@font-face {
+    font-family:'iconfont';src:url('//at.alicdn.com/t/font_452765_sqqtqgqq90y66r.eot');src:url('//at.alicdn.com/t/font_452765_sqqtqgqq90y66r.eot?#iefix') format('embedded-opentype'),url('//at.alicdn.com/t/font_452765_sqqtqgqq90y66r.woff') format('woff'),url('//at.alicdn.com/t/font_452765_sqqtqgqq90y66r.ttf') format('truetype'),url('//at.alicdn.com/t/font_452765_sqqtqgqq90y66r.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-family: "iconfont"!important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-zisuo-qianbao:before {
+    content: "\e612";
+}
+
+.icon-zisuo-jifen:before {
+    content: "\e6f9";
+}
+
+.icon-zisuo-dingdan:before {
+    content: "\e602";
+}
+
+.icon-zisuo-dizhi:before {
+    content: "\e624";
+}
+
+.icon-zisuo-fuwu:before {
+    content: "\e63e";
+}
+
+.icon-zisuo-youhuiquan:before {
+    content: "\e62d";
+}
+
+.icon-zisuo-tongbu:before {
+    content: "\e642";
+}
+
+.icon-zisuo-shouji:before {
+    content: "\e603";
+}
+
+/*订单  */
+.user-cart-list {
+    background-color: #fff;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.cart-list {
+    display: inline-block;
+    width: 25%;
+    color: #666;
+    font-size: 26rpx;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.red-dot {
+    border-radius: 50%;
+    width: 36rpx;
+    height: 36rpx;
+    position: absolute;
+    right: 30rpx;
+    background-color: #ff3f3e;
+    color: #fff;
+    font-size: 24rpx;
+    line-height: 36rpx;
+    top: -10rpx;
+}
+
+.cart-list image {
+    width: 50rpx;
+    height: 50rpx;
+    display: block;
+    margin: 0 auto;
+    padding-bottom: 5px;
+}

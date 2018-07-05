@@ -1,0 +1,14 @@
+.notice {
+    padding: 15rpx;
+    font-size: 25rpx;
+    min-height: 100%;
+    overflow: hidden;
+    overflow-y: hidden;
+}
+
+.title {
+    color: chocolate;
+    font-size: 40rpx;
+    margin-bottom: 30rpx;
+    text-align: center;
+}

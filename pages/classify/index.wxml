@@ -1,0 +1,38 @@
+<view class="containerindex">
+    <view class="search">
+        <view bindtap="aboutXiao" class="scan">
+            <image class="widgets-img" mode="aspectFit" src="../../images/ai3.png"></image>
+        </view>
+        <view class="search-input">
+            <image class="search-icon" mode="aspectFit" src="../../images/ath.png"></image>
+            <input bindconfirm="toSearch" class="serach-text" placeholder="搜索商品"></input>
+        </view>
+        <navigator class="scan" url="/pages/order-list/index">
+            <image class="widgets-img" mode="aspectFit" src="../../images/ahv.png"></image>
+        </navigator>
+    </view>
+</view>
+<view>
+    <scroll-view class="types" scrollX="true">
+        <view bindtap="tabClick" class="type {{activeCategoryId==item.id?'active':''}}" id="{{item.id}}" wx:for="{{categories}}" wx:key="id">
+            <view class="border"></view>
+            <text>{{item.name}}</text>
+        </view>
+    </scroll-view>
+    <view class="container-right">
+        <view class="list">
+            <view bindtap="toDetailsTap" class="goods-wrap" data-id="{{item.id}}" wx:for="{{goods}}" wx:key="{{index}}">
+                <image class="goods-img" src="{{item.pic}}_m"></image>
+                <view class="text">
+                    <view class="title">
+                        <text>{{item.name}}</text>
+                    </view>
+                    <view class="price">
+                        <text class="new">￥{{item.minPrice}}</text>
+                        <text class="old">￥{{item.originalPrice}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

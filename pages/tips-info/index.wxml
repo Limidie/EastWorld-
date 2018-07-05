@@ -1,0 +1,8 @@
+<view class="pay-success">
+    <view class="success tc">
+        <icon size="64" type="info"></icon>
+        <view class="f20 blue">授权失败</view>
+        <view class="f14 mt20 grey">此应用需要您的授权,我们不会窃取您的个人信息</view>
+    </view>
+    <button bindgetuserinfo="onUserInfo" catchtap="onUserInfoTap" class="wancheng tc green" openType="getUserInfo">重新授权</button>
+</view>

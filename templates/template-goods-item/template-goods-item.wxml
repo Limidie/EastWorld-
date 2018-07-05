@@ -1,0 +1,8 @@
+<template name="goods-item">
+    <view class="img-box">
+        <image class="image" src="{{item.pic}}"></image>
+    </view>
+    <view class="goods-title">{{item.name}}</view>
+    <view class="goods-price">¥ {{item.minPrice}}</view>
+    <view class="goods-right">{{item.views}}人看过</view>
+</template>

@@ -1,0 +1,15 @@
+<import src="../../templates/template-load-fail/template-load-fail.wxml"></import>
+<view class="container">
+    <scroll-view class="content" wx:if="{{load_statue}}">
+        <view bindtap="showsubshopGoodsList" class="subshop-item" data-subshopid="{{item.id}}" wx:for="{{subshops}}">
+            <view class="item-left">
+                <view class="item-content">
+                    <image class="subshop-icon" src="{{item.icon}}"></image>
+                    <text class="subshop-text">{{item.name}}</text>
+                </view>
+            </view>
+            <image class="item-right" src="../../images/arrow-right.png"></image>
+        </view>
+    </scroll-view>
+    <template is="load-fail-view" data wx:else></template>
+</view>

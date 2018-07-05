@@ -1,0 +1,12 @@
+
+<view class="pay-success">
+ <form bindsubmit="bindSave"> 
+    <view class="success tc">
+        <icon type="info" color='#0abb07' size="56" />
+        <view class="f14 grey">为了更好的体验，此应用需要获取您的昵称、头像等基本信息授权</view>
+    </view>
+    <button class="wancheng tc blue" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" catchtap="getUserInfo">确定授权</button>
+  </form>
+</view>
+
+

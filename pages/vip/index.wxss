@@ -1,0 +1,140 @@
+.m-coupon-item {
+    width: 700rpx;
+    height: 192rpx;
+    margin: 10rpx auto;
+    background: url(http://static.weiqilian.com/appicon/Coupon.png) center no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+    padding: 12rpx;
+}
+
+.m-coupon-info {
+    float: left;
+    width: 485rpx;
+    margin-left: 30rpx;
+    margin-top: 19.5rpx;
+}
+
+.m-coupon-btn {
+    float: left;
+    width: 110rpx;
+    height: 140rpx;
+    margin-left: 30rpx;
+    line-height: 35rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #a2279c;
+    margin-top: 14rpx;
+}
+
+.btn-coupon {
+    display: inline-block;
+    width: 28rpx;
+}
+
+.btn-coupon-gray {
+    color: #888;
+}
+
+.m-coupon-text {
+    float: left;
+    width: 300rpx;
+}
+
+.m-coupon-text label {
+    display: inline-block;
+    color: #333;
+    font-size: 28rpx;
+    width: 350rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.m-coupon-text text {
+    display: inline-block;
+    width: 350rpx;
+    font-size: 24rpx;
+    color: #888;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.m-coupon-price {
+    float: left;
+    height: 132rpx;
+    color: #a2279c;
+    font-weight: bold;
+    line-height: 132rpx;
+    width: 180rpx;
+    position: relative;
+    font-size: 75rpx;
+}
+
+.price-content-box {
+    position: absolute;
+    left: -35rpx;
+    text-align: center;
+    width: 220rpx;
+}
+
+.price-content-box label {
+    font-size: 32rpx;
+}
+
+.u-loadmore {
+    width: 85%;
+    margin: 1.5em auto;
+    line-height: 1.6em;
+    font-size: 14px;
+    text-align: center;
+}
+
+.u-loadmore .item-bgs {
+    width: 750rpx;
+    height: 357rpx;
+    position: absolute;
+    left: 0;
+}
+
+.u-loadmore .item-bg {
+    width: 750rpx;
+    height: 111rpx;
+    position: absolute;
+    left: 0;
+}
+
+.u-loadmore-tips {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.u-loadmore-line {
+    border-top: 1px solid #E5E5E5;
+    margin-top: 2.4em;
+}
+
+.u-loadmore-line .u-loadmore-tips {
+    position: relative;
+    top: -0.9em;
+    padding: 0 .55em;
+    background-color: #f8f8f8;
+    color: #999999;
+}
+
+.u-loadmore-dot .u-loadmore-tips {
+    padding: 0 .16em;
+}
+
+.u-loadmore-dot .u-loadmore-tips:before {
+    content: " ";
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #E5E5E5;
+    display: inline-block;
+    position: relative;
+    vertical-align: 0;
+    top: -0.16em;
+}

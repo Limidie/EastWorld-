@@ -1,0 +1,8 @@
+<template name="load-fail-view">
+    <view class="load-fail-box">
+        <view class="load-fail-tips-box">
+            <image class="load-fail-image" src="../../images/loadfail.png"></image>
+            <button bindtap="reLoad" class="load-fail-button" type="defualt">重新加载</button>
+        </view>
+    </view>
+</template>

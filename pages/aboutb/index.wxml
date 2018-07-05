@@ -1,0 +1,43 @@
+<import src="../../templates/template-load-fail/template-load-fail.wxml"></import>
+<view class="page-view">
+    <view class="content" wx:if="{{load_statue}}">
+        <image class="banner-image" src="{{shopInfo.pic}}" wx:if="{{shopInfo.pic}}"></image>
+        <view class="about-item">
+            <view class="item-left">
+                <label>店铺名称：</label>
+                <text>{{shopInfo.name}}</text>
+            </view>
+        </view>
+        <view bindtap="showLocation" class="about-item">
+            <view class="item-left">
+                <label>店铺地址：</label>
+                <text>{{shopInfo.address}}</text>
+            </view>
+            <view class="item-right">
+                <image class="right-icon" src="../../images/ico-addr.png"></image>
+            </view>
+        </view>
+        <view bindtap="callPhone" class="about-item">
+            <view class="item-left">
+                <label>手机号码：</label>
+                <text>{{shopInfo.linkPhone}}</text>
+            </view>
+            <view class="item-right">
+                <image class="right-icon" src="../../images/telephone.png"></image>
+            </view>
+        </view>
+        <view class="about-item">
+            <view class="item-left">
+                <label>商家特色：</label>
+                <text>{{shopInfo.characteristic}}</text>
+            </view>
+        </view>
+        <view class="about-item-js">
+            <view class="item-left">
+                <label>店铺介绍：</label>
+                <text>{{shopInfo.introduce}}</text>
+            </view>
+        </view>
+    </view>
+    <template is="load-fail-view" data wx:else></template>
+</view>

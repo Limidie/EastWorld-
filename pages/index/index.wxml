@@ -1,0 +1,191 @@
+<view class="search flex">
+    <view bindtap="shop_saoma_bind" class="saoyisaoss tc">
+        <text class="iconfont icon-saoyisao"></text>
+    </view>
+    <view class="search-box sub">
+        <view class="flex">
+            <input bindconfirm="toSearch" class="sub search-input" confirmType="search" placeholder="请搜索商品" type="text"></input>
+            <button bindtap="toSearch" class="search-btn" size="mini">
+                <icon size="18" type="search"></icon>
+            </button>
+        </view>
+    </view>
+    <button class="contact-button" openType="contact">
+        <text class="iconfont icon-mark"></text>
+    </button>
+</view>
+<view class="swiper">
+    <swiper autoplay="true" bindchange="swiperchange" class="swiper-box" current="0" duration="600" indicatorActiveColor="#ffffff" indicatorColor="rgba(0,0,0,0.5)" indicatorDots="true" interval="3000">
+        <swiper-item wx:for="{{banners}}" wx:key="id">
+            <image bindtap="tapBanner" class="swiper-img" data-id="{{item.businessId}}" mode="aspectFill" src="{{item.picUrl}}_m"></image>
+        </swiper-item>
+    </swiper>
+</view>
+<view class="category">
+    <view bindtap="scoresign" class="category_item">
+        <view class="category_item_wrap">
+            <view class="icon_wrap">
+                <image class="index_icon" src="../../images/i5.png"></image>
+            </view>
+            <view class="category_item_text">
+                <text wx:if="{{score_sign_continuous==0}}">签到</text>
+                <text wx:else>已签到</text>
+            </view>
+        </view>
+    </view>
+    <view class="category_item">
+        <navigator class="category_item_wrap" url="/pages/vip/index">
+            <view class="icon_wrap">
+                <image class="index_icon" src="../../images/room/youhui.png"></image>
+            </view>
+            <view class="category_item_text">
+                <text>优惠券</text>
+            </view>
+        </navigator>
+    </view>
+    <view class="category_item" wx:if="{{item.key==1}}" wx:for="{{categories}}" wx:key="id">
+        <navigator class="category_item_wrap" url="/pages/classify-goods-list/index?categoryid={{item.id}}">
+            <view class="icon_wrap">
+                <image class="index_icon" src="{{item.icon}}"></image>
+            </view>
+            <view class="category_item_text">
+                <text>{{item.name}}</text>
+            </view>
+        </navigator>
+    </view>
+</view>
+<view class="notice flex arrowR mt10">
+    <view class="mr10 red">
+        <text class="iconfont icon-tongzhi"></text>
+    </view>
+    <swiper autoplay circular vertical bindtap="is_show_notice" class="notice-list" interval="2000" wx:if="{{noticeMap}}">
+        <navigator openType="navigate" url="/pages/notice/show?id={{item.id}}" wx:for="{{noticeMap}}" wx:key="{{index}}">
+            <swiper-item>
+                <view class="news lineText">{{item.title}}</view>
+            </swiper-item>
+        </navigator>
+    </swiper>
+</view>
+<view>
+    <view class="home-tit gridXb tc f16">
+        <text class="iconfont icon-crownfill"></text> 品牌专区
+    </view>
+    <view class="brand-box">
+        <scroll-view class="brand-home" scrollWithAnimation="true" scrollX="true">
+            <view class="brand-list" wx:if="{{item.remark==11}}" wx:for="{{Friendly}}" wx:key="id">
+                <navigator openType="navigate" url="{{item.linkUrl}}">
+                    <image class="brand-img" mode="aspectFill" src="{{item.picUrl}}"></image>
+                </navigator>
+            </view>
+        </scroll-view>
+    </view>
+</view>
+<view class="card-tit mt10 gridXb">
+    <text class="iconfont icon-ticket"></text>专享优惠券
+    </view>
+<view class="card clearfix">
+    <view bindtap="gitCoupon" class="card-item" data-id="{{item.id}}" wx:for="{{coupons}}" wx:for-index="idx" wx:key="id">
+        <view class="flex card-info">
+            <view class="card-count sub">
+                <view class="cards">
+                    <view class="card-counts gridXb f24" wx:if="{{item.moneyMin==item.moneyMax}}">￥{{item.moneyMax}}元</view>
+                    <view class="card-counts gridXb f24" wx:else>￥{{item.moneyMin}}-{{item.moneyMax}}元</view>
+                    <view class="card-tips">{{item.name}}</view>
+                </view>
+            </view>
+            <view class="card-txt">
+                <view class="card-txt-box">立即领取</view>
+            </view>
+        </view>
+    </view>
+</view>
+<view>
+    <view class="home-tit gridXb tc f16">
+        <text class="iconfont icon-appreciatefill"></text> 店家推荐
+    </view>
+    <scroll-view class="bgwhite" scrollWithAnimation="true" scrollX="true">
+        <view class="home-rec flex">
+            <navigator class="rec-item sub" url="/pages/about/index?id={{item.id}}" wx:for="{{idies}}" wx:key="id">
+                <view class="rec-imgbox">
+                    <image class="rec-img" mode="aspectFill" src="{{item.pic}}"></image>
+                </view>
+                <view class="good-names lineText2">
+                    <text>{{item.name}}</text>
+                </view>
+            </navigator>
+        </view>
+    </scroll-view>
+</view>
+<view>
+    <view class="home-tit home-tit2 gridXb tc f16">
+        <text class="iconfont icon-hotfill"></text> 热品推荐
+    </view>
+    <scroll-view class="bgwhite" scrollWithAnimation="true" scrollX="true">
+        <view class="home-rec flex">
+            <view bindtap="toDetailsTap" class="rec-item sub" data-id="{{item.id}}" wx:if="{{item.recommendStatus==1}}" wx:for="{{goods}}" wx:key="{{index}}">
+                <view class="rec-imgbox">
+                    <image class="rec-img" mode="aspectFill" src="{{item.pic}}_m"></image>
+                </view>
+                <view class="good-name lineText2">
+                    <text>{{item.name}}</text>
+                </view>
+                <view class="flex">
+                    <view class="good-price sub">
+                        <text class="f16">￥{{item.minPrice}}</text>
+                        <view class="delLine grey ml5 f12">￥{{item.originalPrice}}</view>
+                    </view>
+                    <view wx:if="{{item.commissionType==1}}">
+                        <text class="f18 red iconfont icon-sponsor"></text>
+                    </view>
+                    <view wx:if="{{item.commissionType==2}}">
+                        <text class="f18 red iconfont icon-recharge"></text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>
+<view>
+    <view class="goods-tit tc f16">
+        <text class="iconfont icon-heart-full-copy"></text> 新品上架
+    </view>
+    <view class="goods clearfix">
+        <view bindtap="toDetailsTap" class="goods-item" data-id="{{item.id}}" wx:for="{{goods}}" wx:key="{{index}}">
+            <view class="goods-imgbox">
+                <image class="goods-img" mode="aspectFill" src="{{item.pic}}_m"></image>
+            </view>
+            <view class="goods-info">
+                <view class="goods-name lineText2">
+                    <text>{{item.name}}</text>
+                </view>
+                <view class="flex">
+                    <view class="goods-price sub">
+                        <text class="iconfont icon-cu"></text>
+                        <text class="f16">￥{{item.minPrice}}</text>
+                        <text class="delLine grey ml5 f12">￥{{item.originalPrice}}</text>
+                    </view>
+                    <view wx:if="{{item.commissionType==2}}">
+                        <text class="f18 red iconfont icon-recharge"></text>
+                    </view>
+                    <view wx:if="{{item.commissionType==1}}">
+                        <text class="f18 red iconfont icon-sponsor"></text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="tips-foot tc f12 grey">
+    不要扯了，已经扯到底了
+  </view>
+<view class="aside-flote">
+    <button hoverClass="none" openType="share" type="primary">
+        <text bindtap="bind_go_cart" class="iconfont icon-share"></text>
+    </button>
+    <button hoverClass="none" openType="contact" type="primary">
+        <text bindtap="bind_go_cart" class="iconfont icon-mark"></text>
+    </button>
+    <button bindtap="bind_go_cart" hoverClass="none" type="primary">
+        <text bindtap="bind_go_cart" class="iconfont icon-cart"></text>
+    </button>
+</view>

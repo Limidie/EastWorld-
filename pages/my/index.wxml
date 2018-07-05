@@ -1,0 +1,89 @@
+<view class="container">
+    <view bindtap="bindViewTap" class="userinfo">
+        <block wx:if="{{userInfo&&userInfo.avatarUrl}}">
+            <image background-size="cover" class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </block>
+        <block wx:else>
+            <image backgroundSize="cover" bindtap="openSetting" class="userinfo-avatar" src="../../images/userno.png"></image>
+            <text bindtap="relogin" class="userinfo-nickname" 	>点击去登录</text>
+        </block>
+        <text class="userinfo-nickname" wx:if="{{userMobile}}">{{userMobile}}</text>
+        
+        <view class="ss">
+          <image src="{{userInfo.avatarUrl}}"></image>
+        </view>  
+    </view>
+    <view class="my-item">
+        <image class="item-left-icon" src="../../images/room/qianbao.png"></image>
+        <text class="item-content-yuer">余额 ￥{{balance}}</text>
+        <button bindtap="recharge" class="text-decoration" size="mini" type="primary">预付充值</button>
+        <button bindtap="withdraw" class="text-decoration" size="mini" type="warn">提现</button>
+    </view>
+    <view class="my-item">
+        <image class="item-left-icon" src="../../images/room/jifen.png"></image>
+        <text class="item-content-qian">积分:{{score}}</text>
+        <button bindtap="scoresign" class="text-decoration" size="mini" wx:if="{{score_sign_continuous==0}}">每日签到</button>
+        <button class="text-decoration" disabled="true" size="mini" wx:if="{{score_sign_continuous>0}}">连签{{score_sign_continuous}}天</button>
+        <button bindtap="jifenduihuan" class="text-decoration" size="mini">兑换</button>
+    </view>
+</view>
+<view class="my-menu-box links">
+    <navigator catchtap="onNavigateTap" class="my-menu-item gridXt" url="/pages/order-list/index">
+        <text class="iconfont icon-zisuo-dingdan mr10"></text>
+        <text>我的订单</text>
+    </navigator>
+    <view class="user-cart-list">
+        <view bindtap="mygoorderlist" class="cart-list" data-index="0">
+            <view class="red-dot" wx:if="{{noplay}}">{{noplay}}</view>
+            <image src="../../images/order-details/orderform_pay.png"></image>
+      待付款
+    </view>
+        <view bindtap="mygoorderlist" class="cart-list" data-index="1">
+            <view class="red-dot" wx:if="{{notransfer}}">{{notransfer}}</view>
+            <image src="../../images/order-details/orderform_ship.png"></image>
+      待发货
+    </view>
+        <view bindtap="mygoorderlist" class="cart-list" data-index="2">
+            <view class="red-dot" wx:if="{{noconfirm}}">{{noconfirm}}</view>
+            <image src="../../images/order-details/delivering.png"></image>
+      待收货
+    </view>
+        <view bindtap="mygoorderlist" class="cart-list" data-index="3">
+            <view class="red-dot" wx:if="{{noreputation}}">{{noreputation}}</view>
+            <image src="../../images/order-details/orderform.png"></image>
+      待评价
+    </view>
+    </view>
+    <navigator catchtap="onNavigateTap" class="my-menu-item gridXt" url="/pages/select-address/index">
+        <text class="iconfont icon-zisuo-dizhi mr10"></text>
+        <text>收货地址</text>
+    </navigator>
+</view>
+<view class="my-menu-box links">
+    <block wx:if="{{userInfo&&userInfo.avatarUrl}}"></block>
+    <navigator catchtap="onNavigateTap" class="my-menu-item gridXt" url="/pages/tips-info/index" wx:else>
+        <text class="iconfont icon-zisuo-tongbu mr10"></text>
+        <text>同步微信信息</text>
+    </navigator>
+</view>
+
+<view class="copyright grey">
+    <view  class="copyright-text">共微科技提供技术支持</view>
+</view>
+<view class="aside-flote">
+    <button hoverClass="none" openType="share" type="primary">
+        <text bindtap="bind_go_cart" class="iconfont icon-share"></text>
+    </button>
+    <button bindgetphonenumber="getPhoneNumber" hoverClass="none" openType="getPhoneNumber" type="primary">
+        <text class="iconfont icon-zisuo-shouji"></text>
+    </button>
+    <navigator hoverClass="navigator-hover" url="/pages/mycoupons/index">
+        <button hoverClass="none" type="primary">
+            <text class="iconfont icon-zisuo-youhuiquan"></text>
+        </button>
+    </navigator>
+    <button bindtap="goTop" hoverClass="none">
+        <text class="iconfont icon-fold" wx:if="{{floorstatus}}"></text>
+    </button>
+</view>

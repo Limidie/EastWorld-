@@ -1,0 +1,141 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+<scroll-view bindscrolltolower="scrolltolower" class="container" scrollTop="{{scrollTop}}" scrollY="true" style="position: absolute; left: 0; top:0; bottom: 0; right: 0;">
+    <view class="swiper-container">
+        <swiper autoplay="{{autoplay}}" bindchange="swiperchange" class="swiper_box" duration="{{duration}}" interval="{{interval}}">
+            <swiper-item wx:for="{{goodsDetail.pics}}" wx:key="id">
+                <image class="slide-image" height="150" lazyLoad="true" mode="aspectFit" src="{{item.pic}}_m" width="355"></image>
+            </swiper-item>
+        </swiper>
+        <view class="dots">
+            <view class="dot{{index==swiperCurrent?' active':''}}" wx:for="{{goodsDetail.pics}}" wx:key="unique"></view>
+        </view>
+    </view>
+    <view class="swiper-container" wx:if="{{goodsDetail.basicInfo.videoId}}">
+        <video autoplay="true" loop="true" src="{{videoMp4Src}}" style="width:100%"></video>
+    </view>
+    <view class="goods-infos">
+        <view vCloak class="prod-title">
+            <view class="prod-tit-l">
+                <text class="cuxiao">促</text>{{goodsDetail.basicInfo.name}}
+  </view>
+            <view bindtap="fenxiangxianjin" class="prod-tit-r" wx:if="{{goodsDetail.basicInfo.commissionType==2}}">
+                <i></i>
+                <span>分享有赏</span>
+            </view>
+            <view bindtap="fenxiangjifen" class="prod-tit-r" wx:if="{{goodsDetail.basicInfo.commissionType==1}}">
+                <i></i>
+                <span>分享有赏</span>
+            </view>
+        </view>
+        <view class="price red f18">￥ {{selectSizePrice}}<text class="delLine grey f12 ml10">￥{{goodsDetail.basicInfo.originalPrice}}</text>
+        </view>
+        <view class="card-tit mt10 gridXb" wx:if="{{goodsDetail.basicInfo.shopId>0}}">
+            <navigator url="/pages/about/index?id={{goodsDetail.basicInfo.shopId}}">
+                <text class="iconfont icon-shop"></text> 进入商家门店 >>
+      </navigator>
+        </view>
+        <view class="clearfix flex grey gridXt">
+            <text class="sub">库存：{{goodsDetail.basicInfo.stores}}</text>
+            <text class="sub">销量：{{goodsDetail.basicInfo.numberOrders}}</text>
+        </view>
+    </view>
+    <view bindtap="bindGuiGeTap" class="row-arrow" wx:if="{{hasMoreSelect}}">
+      {{selectSize}}
+   </view>
+    <view class="goods-des-info">
+        <view class="label-title">商品介绍</view>
+        <view class="goods-text">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}"></template>
+        </view>
+    </view>
+    <view class="goods-des-info" style="margin-top:35rpx;" wx:if="{{reputation}}">
+        <view class="label-title" style="border-bottom:1px solid #eee;">大家评价<text style="color:red">（{{reputation.length}}）</text>
+        </view>
+        <view class="goods-text" style="margin-top:15rpx;" wx:for="{{reputation}}" wx:key="id">
+            <view style="width:100rpx;float:left;">
+                <image src="{{item.user.avatarUrl}}" style="width: 100rpx; height: 100rpx;"></image>
+                <view style="text-align:center;width:100rpx;">{{item.goods.goodReputationStr}}</view>
+            </view>
+            <view style="width:550rpx;float:left;margin-left:35rpx;border-bottom:1px solid #eee;">
+                <view>{{item.goods.goodReputationRemark}}</view>
+                <view style="color: #B0B0B0;font-size:24rpx;">{{item.goods.dateReputation}}     {{item.goods.property}}</view>
+            </view>
+        </view>
+    </view>
+</scroll-view>
+<view class="foot-nav mt15">
+    <view class="flex con gridXt tc">
+        <view class="fast-links flex f12">
+            <view bindtap="calling" class="sub gridYr">
+                <text class="iconfont icon-phone">电话</text>
+            </view>
+            <view class="sub gridYr">
+                <button openType="contact" style="width:100%;height:100%;left:0;top:0;position:absolute;opacity:0;z-index:1"></button>
+                <text class="iconfont icon-mark red">客服</text>
+            </view>
+            <view bindtap="goShopCar" class="sub cart notempty">
+                <text class="iconfont icon-cart">购物车</text>
+            </view>
+        </view>
+        <view bindtap="toAddShopCar" class="buy-now sub f16">
+            <button class="add-cart-btn">加入购物车</button>
+        </view>
+        <view bindtap="tobuy" class="add-cart sub f16">
+            <button class="add-cart-btn">立即购买</button>
+        </view>
+    </view>
+</view>
+<view class="show-popup" hidden="{{hideShopPopup}}">
+    <view bindtap="closePopupTap" class="popup-mask"></view>
+    <view class="popup-contents">
+        <view class="pop-goods-info">
+            <view class="pop-img-box">
+                <image class="goods-thumbnail" src="{{goodsDetail.basicInfo.pic}}"></image>
+            </view>
+            <view class="pop-goods-des">
+                <view class="pop-goods-title">{{goodsDetail.basicInfo.name}}</view>
+                <view class="pop-goods-price">¥ {{selectSizePrice}}</view>
+            </view>
+            <view bindtap="closePopupTap" class="pop-goods-close"></view>
+        </view>
+        <view class="size-label-box">
+            <block wx:for="{{goodsDetail.properties}}" wx:for-index="idx" wx:for-item="property" wx:key="id">
+                <view class="label">{{property.name}}</view>
+                <view class="label-item-box">
+                    <view bindtap="labelItemTap" class="label-item {{item.active?'active':''}}" data-propertychildid="{{item.id}}" data-propertychildindex="{{index}}" data-propertychildname="{{item.name}}" data-propertyid="{{property.id}}" data-propertyindex="{{idx}}" data-propertyname="{{property.name}}" wx:for="{{property.childsCurGoods}}" wx:key="id">
+                        {{item.name}}
+                    </view>
+                </view>
+            </block>
+        </view>
+        <view class="buy-num-box">
+            <view class="num-label">购买数量</view>
+            <view class="num-box">
+                <view bindtap="numJianTap" class="num-jian {{buyNumber==buyNumMin?'hui':''}}">-</view>
+                <view class="num-input">
+                    <input disabled type="number" value="{{buyNumber}}"></input>
+                </view>
+                <view bindtap="numJiaTap" class="num-jia {{buyNumber==buyNumMax?'hui':''}}">+</view>
+            </view>
+        </view>
+        <view bindtap="addShopCar" class="popup-join-btn" wx:if="{{shopType=='addShopCar'}}">
+                加入购物车
+             </view>
+        <view bindtap="buyNow" class="popup-join-btn" wx:if="{{shopType=='tobuy'}}">
+                立即购买
+             </view>
+    </view>
+</view>
+<view class="aside-flote">
+    <button hoverClass="none" openType="share" type="primary">
+        <text bindtap="bind_go_cart" class="iconfont icon-share"></text>
+    </button>
+    <navigator hoverClass="none" openType="switchTab" url="/pages/index/index">
+        <button hoverClass="none" type="primary">
+            <text class="iconfont icon-homefill"></text>
+        </button>
+    </navigator>
+    <button bindtap="goTop" hoverClass="none">
+        <text class="iconfont icon-fold" wx:if="{{floorstatus}}"></text>
+    </button>
+</view>

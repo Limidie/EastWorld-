@@ -1,0 +1,30 @@
+<view class="qheader flex gridXb">
+    <image class="avatar mr15" mode="aspectFill" src="{{data_list.headimgurl}}"></image>
+    <view class="qname sub">
+        <text class="f20">我是{{data_list.nickname}}</text>
+        <view class="slogan grey">我要为{{data_list.public_name}}代言</view>
+    </view>
+</view>
+<view bindtap="go_goods_info" class="shopss flex gridXb">
+    <image class="simg" mode="aspectFill" src="{{goods_info.g_img}}"></image>
+    <view class="sbox sub ml15">
+        <view class="tit lineText2">{{goods_info.g_name}}</view>
+        <view class="price mt15 f24 red">
+            <block wx:if="{{goods_info.promote_status==1}}">￥{{goods_info.promote_price}}</block>
+            <block wx:else>￥{{goods_info.shop_price}}</block>
+        </view>
+    </view>
+</view>
+<view class="erwema tc">
+    <image class="qrcode" mode="aspectFill" src="https://cdn.it120.cc/apifactory/2017/10/03/e78bb9de8c1c554c5b112abe75d5ad8b.jpg"></image>
+    <view class="etxt mt15">点击右上角分享给朋友</view>
+    <button bindtap="saveimage" class="mt15" type="primary">保存图片</button>
+</view>
+<import src="../../../wxParse/wxParse.wxml"></import>
+<view class="tips">
+    <view class="ttit grey gridXb">
+        <text class="iconfont icon-warnfill"></text> 分销规则</view>
+    <view class="tcon">
+        <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+    </view>
+</view>

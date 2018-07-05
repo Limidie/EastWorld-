@@ -1,0 +1,39 @@
+<scroll-view bindscrolltolower="scrollbottom" class="m-scrollBox" scrollY="true">
+    <block wx:if="{{coupons.length>0}}">
+        <view bindtap="gitCoupon" class="m-coupon-item" data-id="{{item.id}}" wx:for="{{coupons}}" wx:for-index="idx">
+            <image class="item-bg" src="../../images/room/coupon_red.png"></image>
+            <view class="coupon-item-left">
+                <view class="item-left-top">¥<label>{{item.money}}</label>
+                </view>
+                <view class="item-left-bottom">全店通用</view>
+            </view>
+            <view class="coupon-item-right">
+                <view class="item-title {{tapindex==0?'item-title-black':''}}">{{item.name}}</view>
+                <view class="item-middle">
+                    <lable class="item-time">满 {{item.moneyHreshold}} 元使用</lable>
+                    <label bindtap="goBuy" class="item-usenow">立即使用</label>
+                </view>
+                <view class="item-desc"> {{item.dateEnd}} 前有效 </view>
+            </view>
+            <label class="iconfont {{tapindex==2?'icon-yiguoqi':'icon-yishiyong'}} " wx:if="{{tapindex==1||tapindex==2}}"></label>
+        </view>
+    </block>
+    <view class="m-nullcontent" wx:else>
+        <view class="m-nullpage-middle">
+            <label class="iconfont icon-meiyougengduo"></label>
+            <view class="m-null-tip">
+                <text>亲~什么都没有</text>
+                <text>赶快去领券中心吧</text>
+            </view>
+        </view>
+    </view>
+    <view class="m-loading-box">
+        <view class="u-loadmore" wx:if="{{ispage}}">
+            <lael class="u-loading"></lael>
+            <text class="u-loadmore-tips">正在加载</text>
+        </view>
+        <view class="u-loadmore u-loadmore-line" wx:else>
+            <text class="u-loadmore-tips">没有更多数据啦！</text>
+        </view>
+    </view>
+</scroll-view>

@@ -1,0 +1,12 @@
+module.exports.login = 'https://api.it120.cc/gqxywsh/banner/list', module.exports.loadBanner = "https://api.it120.cc/gqxywsh//banner/list", 
+  module.exports.loadGoods = "https://api.it120.cc/gqxywsh//shop/goods/list", module.exports.register = "https://api.it120.cc/gqxywsh//user/wxapp/register/complex", 
+module.exports.loadCategory = "https://api.it120.cc/gqxywsh//shop/goods/category/all", 
+module.exports.addressHandler = "https://api.it120.cc/gqxywsh//user/shipping-address/", 
+module.exports.loadGoodsDetail = "https://api.it120.cc/gqxywsh//shop/goods/detail", 
+module.exports.loadGoodsPrice = "https://api.it120.cc/gqxywsh//shop/goods/price", 
+  module.exports.loadOrderDetail = "https://api.it120.cc/gqxywsh//order/detail", module.exports.loadOrderDelivery = "https://api.it120.cc/gqxywsh//order/detail", 
+module.exports.loadOrderReputation = "https://api.it120.cc/gqxywsh//order/reputation", 
+  module.exports.closeOrder = "https://api.it120.cc/gqxywsh//order/close", module.exports.loadOrderStatistics = "https://api.it120.cc/gqxywsh//order/statistics", 
+  module.exports.loadOrders = "https://api.it120.cc/gqxywsh//order/list", module.exports.createOrder = "https://api.it120.cc/gqxywsh//order/create", 
+module.exports.goodsPriceFreight = "https://api.it120.cc/gqxywsh//shop/goods/price/freight", 
+  module.exports.loadShops = "https://api.it120.cc/gqxywsh/shop/subshop/list", module.exports.loadShopDetail = "https://api.it120.cc/gqxywsh//shop/subshop/detail";

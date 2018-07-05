@@ -1,0 +1,16 @@
+<import src="../../templates/template-load-fail/template-load-fail.wxml"></import>
+<import src="../../templates/template-goods-item/template-goods-item.wxml"></import>
+<view class="container">
+    <view class="content" wx:if="{{load_statue}}">
+        <view class="goods-container">
+            <view bindtap="toDetailsTap" class="goods-box" data-id="{{item.id}}" wx:for="{{goods}}">
+                <template is="goods-item" data="{{item:item}}"></template>
+            </view>
+        </view>
+        <view class="list-bottom">
+            <view class="no-more-goods" wx:if="{{loadingHidden}}">没有更多啦</view>
+            <button bindtap="loadMoreGoodsList" class="load-more-goods" type="default" wx:else>加载更多</button>
+        </view>
+    </view>
+    <template is="load-fail-view" data wx:else></template>
+</view>

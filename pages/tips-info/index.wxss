@@ -1,0 +1,19 @@
+.blue {
+    color: #10aeff;
+}
+
+page {
+    background: #fff;
+}
+
+.success {
+    padding: 140rpx 15rpx;
+}
+
+.wancheng {
+    border: 1rpx solid;
+    width: 375rpx;
+    line-height: 78rpx;
+    border-radius: 6rpx;
+    margin: 260rpx auto 20rpx;
+}
