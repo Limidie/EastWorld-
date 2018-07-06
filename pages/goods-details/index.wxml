@@ -1,6 +1,6 @@
 <import src="../../wxParse/wxParse.wxml"></import>
 <scroll-view bindscrolltolower="scrolltolower" class="container" scrollTop="{{scrollTop}}" scrollY="true" style="position: absolute; left: 0; top:0; bottom: 0; right: 0;">
-    <view class="swiper-container">
+    <view class="swiper-container"  wx:if="{{!goodsDetail.basicInfo.videoId}}">
         <swiper autoplay="{{autoplay}}" bindchange="swiperchange" class="swiper_box" duration="{{duration}}" interval="{{interval}}">
             <swiper-item wx:for="{{goodsDetail.pics}}" wx:key="id">
                 <image class="slide-image" height="150" lazyLoad="true" mode="aspectFit" src="{{item.pic}}_m" width="355"></image>

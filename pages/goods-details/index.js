@@ -2,9 +2,9 @@ var t = getApp(), a = require("../../wxParse/wxParse.js");
 
 Page({
     data: {
-        autoplay: !0,
-        interval: 3e3,
-        duration: 1e3,
+        autoplay: true,
+        interval: 3000,
+        duration: 1000,
         goodsDetail: {},
         swiperCurrent: 0,
         hasMoreSelect: !1,
@@ -298,6 +298,22 @@ Page({
             success: function(t) {},
             fail: function(t) {}
         };
+    },
+    getVideoSrc: function (videoId) {
+      var that = this;
+      wx.request({
+        url: 'https://api.it120.cc/' + app.globalData.subDomain + '/media/video/detail',
+        data: {
+          videoId: videoId
+        },
+        success: function (res) {
+          if (res.data.code == 0) {
+            that.setData({
+              videoMp4Src: res.data.data.fdMp4
+            });
+          }
+        }
+      })
     },
     reputation: function(a) {
         var o = this;
