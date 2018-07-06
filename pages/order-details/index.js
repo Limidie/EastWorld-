@@ -29,7 +29,7 @@ Page({
         wx.request({
             url: "https://api.it120.cc/" + a.globalData.subDomain + "/order/detail",
             data: {
-                token: a.globalData.token,
+              token: wx.getStorageSync('token'),
                 id: t.data.orderId
             },
             success: function(a) {
@@ -63,7 +63,7 @@ Page({
                 t.confirm && (wx.showLoading(), wx.request({
                     url: "https://api.it120.cc/" + a.globalData.subDomain + "/order/delivery",
                     data: {
-                        token: a.globalData.token,
+                      token: wx.getStorageSync('token'),
                         orderId: o
                     },
                     success: function(a) {
@@ -75,7 +75,7 @@ Page({
     },
     submitReputation: function(t) {
         var e = this, o = {};
-        o.token = a.globalData.token, o.orderId = this.data.orderId;
+        o.token = wx.getStorageSync('token'), o.orderId = this.data.orderId;
         for (var i = [], d = 0; t.detail.value["orderGoodsId" + d]; ) {
             var r = t.detail.value["orderGoodsId" + d], n = t.detail.value["goodReputation" + d], s = t.detail.value["goodReputationRemark" + d], u = {};
             u.id = r, u.reputation = n, u.remark = s, i.push(u), d++;
