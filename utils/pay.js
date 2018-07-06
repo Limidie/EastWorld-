@@ -7,7 +7,7 @@ module.exports = {
         }), wx.request({
             url: "https://api.it120.cc/" + a.globalData.subDomain + "/pay/wxapp/get-pay-data",
             data: {
-                token: a.globalData.token,
+              token: wx.getStorageSync('token'),
                 money: t,
                 remark: o,
                 payName: "在线支付",
