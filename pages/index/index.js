@@ -157,7 +157,7 @@ Page({
             url: "https://api.it120.cc/" + t.globalData.subDomain + "/discounts/fetch",
             data: {
                 id: a.currentTarget.dataset.id,
-                token: t.globalData.token
+                token: wx.getStorageSync('token')
             },
             success: function(t) {
                 20001 != t.data.code && 20002 != t.data.code ? 20003 != t.data.code ? 30001 != t.data.code ? 20004 != t.data.code ? 0 == t.data.code ? wx.showToast({
@@ -253,7 +253,7 @@ Page({
         wx.request({
             url: "https://api.it120.cc/" + t.globalData.subDomain + "/score/today-signed",
             data: {
-                token: t.globalData.token
+              token: wx.getStorageSync('token'),
             },
             success: function(t) {
                 0 == t.data.code && a.setData({
@@ -267,7 +267,7 @@ Page({
         wx.request({
             url: "https://api.it120.cc/" + t.globalData.subDomain + "/score/sign",
             data: {
-                token: t.globalData.token
+              token: wx.getStorageSync('token')
             },
             success: function(t) {
                 0 == t.data.code ? (wx.showModal({
