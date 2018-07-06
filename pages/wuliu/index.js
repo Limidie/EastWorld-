@@ -11,7 +11,7 @@ Page({
         wx.request({
             url: "https://api.it120.cc/" + a.globalData.subDomain + "/order/detail",
             data: {
-                token: a.globalData.token,
+              token: wx.getStorageSync('token'),
                 id: t.data.orderId
             },
             success: function(a) {
